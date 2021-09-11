@@ -7,34 +7,24 @@ request.onload = function () {
 
     let bennernews = `<div class="box-main">
                             <div class="title-section">
-                                <div class="first-half">${articles[0].title}</div>
-                                <a href="${articles[0].url}">Read more...</a>
+                                <div class="first-half">${articles[0].title} <a href="${articles[0].url}">Read more...</a></div>
                             </div>
                             <div class="second-half">
-                                <img id="bennerimg" src="${articles[0].urlToImage}" alt="Microsoft" width="500px">
+                                <img id="bennerimg" src="${articles[0].urlToImage}" alt="Microsoft" width="40%">
                             </div>
                         </div>`
     document.querySelector(".banner").innerHTML = bennernews;
     articles.forEach(element => {
-        let news = `<div class="container" style="display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 70%;
-            background-color: azure;
-            margin: 3% 0;">
-            <img src="${element.urlToImage}" class="news-img" alt="Image" style="width: 50%;margin: 2% 0;">
-            <div class="news-title">
-                <h3 class="heading" style="font-size: 2em;
-                font-family: 'Lato', sans-serif;
-                padding: 0 10%;
-                margin-bottom: 2%">${element.title}</h3>
-            </div>
-            <div class="news-description" style="padding: 0 2%;
-            margin-bottom: 2%;">
-                <p>${element.description} <a href="${element.url}" target="_blank">read more</a></p>
-            </div>
-        </div>`;
+        let news = `<div class="container"">
+                        <img src="${element.urlToImage}" class="news-img" alt="Image" style="width: 50%;margin: 2% 0;">
+                        <div class="news-title">
+                            <h3 class="heading">${element.title}</h3>
+                        </div>
+                        <div class="news-description" style="padding: 0 2%;
+                        margin-bottom: 2%;">
+                            <p>${element.description} <a href="${element.url}" target="_blank">read more</a></p>
+                        </div>
+                    </div>`;
         newshtml += news;
     });
     document.querySelector("#news-content").innerHTML = newshtml;
